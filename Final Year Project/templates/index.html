@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/heart.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            {% for feature in columns %}
+                <label for="{{ feature }}" required>
+                    {% if feature == 'age' %}
+                        How old are you?
+                        <input type="text" name="{{ feature }}" required>
+                    {% elif feature == 'sex' %}
+                        What is your gender?
+                        <select name="{{ feature }}" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    {% elif feature == 'cp' %}
+                        How would you describe your chest pain?
+                        <select name="{{ feature }}"required>
+                            <option value="" disabled selected>Select</option>
+                            {% for key, value in chest_pain_mapping.items() %}
+                                <option value="{{ key }}">{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    {% elif feature == 'trestbps' %}
+                        What is your resting blood pressure (in mm Hg)?
+                        <input type="text" name="{{ feature }}" required>
+                    {% elif feature == 'chol' %}
+                        What is your cholesterol level (in mg/dl)?
+                        <input type="text" name="{{ feature }}" required>
+                    {% elif feature == 'fbs' %}
+                        Do you have fasting blood sugar greater than 120 mg/dl?
+                        <select name="{{ feature }}" required>
+                            <option value="" disabled selected>Select</option>
+                            {% for key, value in fbs_mapping.items() %}
+                                <option value="{{ key }}">{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    {% elif feature == 'restecg' %}
+                        How would you describe your resting electrocardiographic results?
+                        <select name="{{ feature }}" required>
+                            <option value="" disabled selected>Select</option>
+                            {% for key, value in restecg_mapping.items() %}
+                                <option value="{{ key }}">{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    {% elif feature == 'thalach' %}
+                        What is your maximum heart rate achieved?
+                        <input type="text" name="{{ feature }}" required>
+                    {% elif feature == 'exang' %}
+                        Do you experience exercise-induced angina?
+                        <label><input type="radio" name="{{ feature }}" value="0"> No</label>
+                        <label><input type="radio" name="{{ feature }}" value="1"> Yes</label>
+                    {% elif feature == 'oldpeak' %}
+                        What is the ST depression induced by exercise relative to rest?
+                        <input type="text" name="{{ feature }}" required>
+                    {% elif feature == 'slope' %}
+                        What is the slope of the peak exercise ST segment?
+                        <label><input type="radio" name="{{ feature }}" value="0"> Upsloping</label>
+                        <label><input type="radio" name="{{ feature }}" value="1"> Flat</label>
+                        <label><input type="radio" name="{{ feature }}" value="2"> Downsloping</label>
+                    {% elif feature == 'ca' %}
+                        How many major vessels colored by fluoroscopy do you have?
+                        <select name="{{ feature }}" required>
+                            <option value="" disabled selected>Select</option>
+                            {% for key, value in ca_mapping.items() %}
+                                <option value="{{ key }}">{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    {% elif feature == 'thal' %}
+                        What is the thalassemia type?
+                        <select name="{{ feature }}" required>
+                            <option value="" disabled selected>Select</option>
+                            {% for key, value in thal_mapping.items() %}
+                                <option value="{{ key }}">{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
+                </label>
+                <br>
+            {% endfor %}
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>

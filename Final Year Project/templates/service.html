@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction Services</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/service.css') }}"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <a href="/home_2" style="text-decoration: none; color:white;"><h1>Disease Prediction Services</h1></a>
+    </header>
+
+    <section id="services">
+        <div class="service">
+            <img src="{{ url_for('static', filename='image/1.jpg') }}" alt="Heart Disease Prediction Logo">
+            <h2>Heart Disease Prediction</h2>
+            <p>Utilizes a sophisticated Random Forest Classifier to analyze patient data and predict the likelihood of heart disease with an accuracy of 98%. This advanced model takes into account a wide range of patient health metrics to provide a comprehensive assessment of heart disease risk.</p>
+        </div>
+
+        <div class="service">
+            <img src="{{ url_for('static', filename='image/diabetes.jpg') }}" alt="Diabetes Prediction Logo">
+            <h2>Diabetes Prediction</h2>
+            <p>Leverages Random Forest Classifier to predict diabetes by evaluating patient health metrics with an accuracy of 97%. Our sophisticated algorithm analyzes various health indicators to provide a reliable assessment of diabetes risk.</p>
+        </div>
+
+        <div class="service">
+            <img src="{{ url_for('static', filename='image/kidney.jpg') }}" alt="Chronic Kidney Disease Prediction Logo">
+            <h2>Chronic Kidney Disease Prediction</h2>
+            <p>Employs Random Forest Algorithm to distinguish between benign and malignant Chronic Kidney Disease tumors based on cell features, achieving an accuracy of 96%. Our cutting-edge approach analyzes cellular data to accurately predict disease status, providing critical insights for early intervention and treatment planning.</p>
+        </div>
+
+        <div class="service">
+            <img src="{{ url_for('static', filename='image/lung.jpg') }}" alt="Lung Cancer Prediction Logo"> <!-- Add your image path -->
+            <h2>Lung Cancer Prediction</h2>
+            <p>Employs Random Forest Classifier Machine Learning algorithm to analyze patient health data and predict the likelihood of lung cancer with an accuracy of 92%. By evaluating a comprehensive set of health indicators, our model provides an early assessment of lung cancer risk, aiding in timely diagnosis and treatment planning..</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Disease Prediction Services. All rights reserved.</p>
+    </footer>
+</body>
+</html>

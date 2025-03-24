@@ -1,0 +1,112 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #87CEEB, #f4f4f4);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header {
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav {
+    background-color: rgba(51, 51, 51, 0.8);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
+#services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Adds space between the boxes */
+    margin: 20px auto;
+    max-width: 1200px; /* Adjust based on your content */
+}
+
+.service {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 10px;
+    padding: 20px;
+    width: calc(50% - 40px); /* Adjust based on gap */
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+}
+
+.service img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.service h2 {
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.service p {
+    font-size: 16px;
+    color: #555;
+    text-align: justify;
+}
+
+.service:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .service {
+        width: calc(100% - 20px); /* Make each box take full width on smaller screens */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items on smaller screens */
+    }
+}
+
+.service img {
+    max-width: 80%; /* Reduce maximum width to make image smaller */
+    max-height: 150px; /* Set a maximum height to ensure consistency */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: block; /* Ensure image is centered */
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kidney Disease Prediction Result</title>
+    <style>
+      body {
+        background: linear-gradient(to bottom, #87CEEB, #f4f4f4);
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+      .result-box {
+        padding: 40px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 80%;
+      }
+      .prediction-result {
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin: 10px 0;
+        font-family: "Georgia", serif;
+      }
+      .positive {
+        color: green;
+      }
+      .negative {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="result-box">
+      <h1>Kidney Disease Prediction Result</h1>
+
+      <p class="prediction-result {{ 'negative' if prediction == 'Patient is diagnosed with Chronic Kidney Disease' else 'positive' }}">{{ prediction }}</p>
+      <p><strong>{{pred_score}}</strong></p>
+      <a href="{{ url_for('index') }}">Refresh</a>
+      <a href="{{ url_for('home') }}">Home</a>
+    </div>
+  </body>
+</html>

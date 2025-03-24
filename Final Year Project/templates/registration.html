@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css') }}">
+    <title>Registration Page</title>
+    <script src="{{ url_for('static', filename='js/registration.js') }}"></script>
+</head>
+<body>
+  <div class="header">
+    <h1>Welcome to Medico!</h1>
+    <h2>Registration</h2>
+  </div>
+  <div class="flash-messages">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <form method="post" action="/registration" onsubmit="return validateForm()">
+    <input type="text" name="full_name" id="full_name" placeholder="Full Name" pattern="[a-zA-Z\s]+" required><br>
+    <input type="email" name="email" id="email" placeholder="Email" pattern="[A-Za-z0-9\._%+\-]+@[A-Za-z0-9\.\-]+\.[A-Za-z]{2,}" required><br>
+
+    <input type="number" name="phone_number" id="phone_number" placeholder="Phone Number" pattern="[0-9]{10}" required><br>
+    <input type="date" name="dob" id="dob" placeholder="Date of Birth" pattern="\d{4}-\d{2}-\d{2}" min="1920-01-01" max="2005-12-31"required><br>
+    <div class="password-container">
+    <input type="password" name="password" id="password" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,30}$" required>
+    <i class="eye-icon" id="showPasswordBtn" onclick="togglePasswordVisibility('password')"></i>
+</div>
+
+<div class="password-container">
+    <input type="password" name="cnfpassword" id="cnfpassword" placeholder="Confirm Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,30}$" required>
+    <i class="eye-icon" id="showCnfPasswordBtn" onclick="togglePasswordVisibility('cnfpassword')"></i>
+</div>
+
+    <button type="submit">Register</button>
+    <div class="signin-link">
+        <p>Already registered? <a href="/login">Sign in</a></p> <!-- Link to the login page -->
+    </div>
+  </form>
+  <div id="error-message" style="color: red;"></div>
+<script>
+    function togglePasswordVisibility(inputId) {
+        var input = document.getElementById(inputId);
+        if (input.type === "password") {
+            input.type = "text";
+        } else {
+            input.type = "password";
+        }
+    }
+  </script>
+</body>
+</html>

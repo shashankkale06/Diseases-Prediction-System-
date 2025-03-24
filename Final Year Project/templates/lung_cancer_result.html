@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Prediction - Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #87CEEB, #f4f4f4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .result-box {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff; /* Light background for the box */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            max-width: 80%;
+        }
+        .prediction-result {
+            font-size: 1rem; /* Increased size */
+            font-weight: bold; /* Make it bold */
+            letter-spacing: 1px; /* Add some spacing between letters */
+            margin: 10px 0;
+            font-family: 'Georgia', serif; /* Change font for more attractiveness */
+        }
+        .positive {
+            color: green; /* Style for Lung Cancer Absent */
+        }
+        .negative {
+            color: red; /* Style for Lung Cancer Present */
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h1>Lung Cancer Prediction - Result</h1>
+        <!-- Apply conditional class based on the prediction -->
+
+        <p class="prediction-result {{ 'positive' if prediction_text == 'Patient is not diagnosed with Lung Cancer' else 'negative' }}">{{ prediction_text }}</p>
+        <p><strong>{{pred_score}}</strong></p>
+        <a href="{{ url_for('index') }}">Refresh</a>
+        <a href="{{ url_for('home') }}">Home</a>
+    </div>
+</body>
+</html>

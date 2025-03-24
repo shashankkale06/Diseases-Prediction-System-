@@ -1,0 +1,81 @@
+# Import necessary libraries
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.impute import SimpleImputer
+
+# Load your dataset
+# Assuming your dataset is in a CSV file named 'heart.csv'
+df = pd.read_csv('heart.csv')
+
+# Define features (X) and target variable (y)
+X = df.drop('target', axis=1)
+y = df['target']
+
+# Mapping for chest pain, sex, exercise-induced angina, and slope
+chest_pain_mapping = {0: 'Typical Angina', 1: 'Atypical Angina', 2: 'Non-Anginal Pain', 3: 'Asymptomatic'}
+sex_mapping = {'male': 1, 'female': 0}
+exang_mapping = {'No': 0, 'Yes': 1}
+slope_mapping = {0: 'Upsloping', 1: 'Flat', 2: 'Downsloping'}
+fbs_mapping = {0: 'False', 1: 'True'}
+restecg_mapping = {0: 'Normal', 1: 'Abnormality', 2: 'Probable or Definite Left Ventricular Hypertrophy'}
+thal_mapping = {1: 'Normal', 2: 'Fixed Defect', 3: 'Reversible Defect'}
+
+# Impute missing values
+imputer = SimpleImputer(strategy='mean')
+X = pd.DataFrame(imputer.fit_transform(X), columns=X.columns)
+
+# Create a random forest classifier
+rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Train the model
+rf_classifier.fit(X, y)  # Using the entire dataset for simplicity
+
+while True:
+    # Accept user input for features
+    user_input = {}
+    for feature in X.columns:
+        if feature == 'sex':
+            value = input(f"Enter value for {feature} (male/female) (or type 'exit' to end): ")
+            user_input[feature] = sex_mapping.get(value.lower(), float('nan'))
+        elif feature == 'cp':
+            value = input(
+                f"Enter value for {feature} (0: Typical Angina, 1: Atypical Angina, 2: Non-Anginal Pain, 3: Asymptomatic): ")
+            user_input[feature] = float(value)
+        elif feature == 'fbs':
+            value = input(f"Enter value for {feature} (0: False, 1: True): ")
+            user_input[feature] = fbs_mapping.get(value, float('nan'))
+        elif feature == 'restecg':
+            value = input(
+                f"Enter value for {feature} (0: Normal, 1: Abnormality, 2: Probable or Definite Left Ventricular Hypertrophy): ")
+            user_input[feature] = restecg_mapping.get(value, float('nan'))
+        elif feature == 'thal':
+            value = input(f"Enter value for {feature} (1: Normal, 2: Fixed Defect, 3: Reversible Defect): ")
+            user_input[feature] = thal_mapping.get(value, float('nan'))
+        elif feature == 'exang':
+            value = input(f"Enter value for {feature} (No/Yes): ")
+            user_input[feature] = exang_mapping.get(value, float('nan'))
+        elif feature == 'slope':
+            value = input(f"Enter value for {feature} (0: Upsloping, 1: Flat, 2: Downsloping): ")
+            user_input[feature] = slope_mapping.get(value, float('nan'))
+        elif feature == 'ca':
+            value = input(f"Enter value for {feature} (number of major vessels): ")
+            user_input[feature] = float(value)
+        else:
+            value = input(f"Enter value for {feature} (or type 'exit' to end): ")
+            if value.lower() == 'exit':
+                exit()
+            user_input[feature] = float(value)
+
+    # Convert user input to a DataFrame
+    user_df = pd.DataFrame([user_input])
+
+    # Impute missing values in user input
+    user_df = pd.DataFrame(imputer.transform(user_df), columns=user_df.columns)
+
+    # Make predictions
+    user_prediction = rf_classifier.predict(user_df)
+
+    # Map the predicted outcome to text
+    prediction_text = 'Heart Disease Present' if user_prediction[0] == 1 else 'Heart Disease Absent'
+
+    print(f'The predicted outcome for the user input is: {prediction_text}\n')

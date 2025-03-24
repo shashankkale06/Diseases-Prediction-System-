@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kidney.css') }}">
+    <title>Lung Cancer Prediction - Input</title>
+</head>
+<body>
+    <h1>Lung Cancer Prediction - Input</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        {% for feature in columns %}
+            <label for="{{ feature }}" required>
+                {{ feature.replace('_', ' ') }}:
+                {% if feature == 'AGE' %}
+                    <input type="text" name="{{ feature }}" required>
+                {% elif feature == 'GENDER' %}
+                    <select name="{{ feature }}" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                {% else %}
+                    <label><input type="radio" name="{{ feature }}" value="0"> No</label>
+                    <label><input type="radio" name="{{ feature }}" value="1"> Yes</label>
+                {% endif %}
+            </label>
+            <br>
+        {% endfor %}
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

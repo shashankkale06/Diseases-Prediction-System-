@@ -1,0 +1,87 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #87CEEB, #f4f4f4);
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+}
+
+.header-custom-color {
+    background-color: #333;
+}
+
+.header-title {
+    font-size: 4rem;
+}
+
+.info-section h2, .info-section p {
+    color: #333; /* Adjust the color to improve readability over your background */
+}
+
+/* Ensure the text is readable over the background */
+.info-section {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 20px;
+}
+
+.info-section h2 {
+    color: #3498db; /* Light blue to match the header, adjust as needed */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.info-section p {
+    font-size: 18px; /* Slightly larger text for readability */
+    line-height: 1.6; /* Improve text spacing */
+    color: #333; /* Darker text for contrast */
+}
+
+@media (max-width: 768px) {
+    .info-section .row {
+        flex-direction: column-reverse; /* Text first on smaller screens */
+    }
+    .info-section img {
+        margin-bottom: 20px; /* Add space between image and text on smaller screens */
+    }
+}
+
+.disease-info-section {
+    background: linear-gradient(to bottom, #87CEEB, #f4f4f4);
+    padding: 20px 0;
+}
+
+.disease-info {
+    background-color: #ffffff; /* White background for each box */
+    border: 1px solid #ddd; /* Light border for the boxes */
+    border-radius: 5px; /* Rounded corners for the boxes */
+    padding: 20px; /* Padding inside the boxes */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    height: 100%; /* Ensure equal height for all columns */
+}
+
+.disease-info h4 {
+    color: #333; /* Dark color for headings */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+.disease-info p {
+    font-size: 14px; /* Adjust font size for the paragraph */
+    color: #555; /* Slightly lighter color for text */
+}
+
+@media (max-width: 768px) {
+    .disease-info {
+        margin-bottom: 20px; /* Add space between boxes on smaller screens */
+    }
+}

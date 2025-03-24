@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/diabetes.css') }}">
+    <title>Diabetes Prediction</title>
+</head>
+<body>
+    <h1>Diabetes Prediction</h1>
+    <form action="/predict" method="post">
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">Female</option>
+            <option value="1">Male</option>
+        </select><br><br>
+
+        <label for="hypertension">Hypertension:</label>
+        <select id="hypertension" name="hypertension" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="heart_disease">Heart Disease:</label>
+        <select id="heart_disease" name="heart_disease" required>
+            <option value="" disabled selected>Select</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="bmi">BMI:</label>
+        <input type="text" id="bmi" name="bmi" required><br><br>
+
+        <label for="HbA1c_level">HbA1c Level:</label>
+        <input type="text" id="HbA1c_level" name="HbA1c_level" required><br><br>
+
+        <label for="blood_glucose_level">Blood Glucose Level:</label>
+        <input type="text" id="blood_glucose_level" name="blood_glucose_level" required><br><br>
+
+        <label for="smoking_history">Smoking History:</label>
+        <select id="smoking_history" name="smoking_history" required>
+            <option value="" disabled selected>Select</option>
+<!--            <option value="0">No Info</option>-->
+            <option value="0">Current</option>
+<!--            <option value="2">Ever</option>-->
+            <option value="1">Former</option>
+            <option value="2">Never</option>
+        </select><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

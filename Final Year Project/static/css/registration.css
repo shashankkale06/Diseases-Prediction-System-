@@ -1,0 +1,172 @@
+/* registration.css */
+
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #87CEEB, #f4f4f4);
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+.flash-messages {
+    width: 100%; /* Full width */
+    text-align: center; /* Center the text */
+    margin-bottom: 20px; /* Space below the flash messages */
+}
+
+.alert {
+    padding: 10px;
+    margin: 10px auto; /* Center the alert in the page with some margin */
+    border: 1px solid transparent; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    color: white; /* White text */
+    background-color: #dc3545; /* Red background color */
+    max-width: 300px; /* Max width, can be adjusted */
+    text-align: center; /* Center the text inside */
+}
+
+.alert-success {
+    background-color: #28a745; /* Green background for success messages */
+}
+
+.alert-error {
+    background-color: #dc3545; /* Red background for error messages */
+}yasi
+
+/* Title styles */
+.title {
+    margin-bottom: 0px; /* Adjust the margin-bottom as needed */
+    text-align: center; /* Align h1 in the center */
+}
+
+.title h1 {
+    font-size: 70px;
+    color: #333; /* Adjust the color as needed */
+}
+
+/* Header styles */
+.header {
+    text-align: center;
+    margin-top: 10px;
+}
+
+h1 {
+    font-size: 70px;
+    color: black;
+    margin-bottom: 11px;
+}
+
+h2 {
+    font-size: 30px;
+    padding: 0px;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+/* Form styles */
+form {
+    display: inline-block;
+    text-align: left;
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+button {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="password"] {
+    box-sizing: border-box;
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin-bottom: 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: grey;
+}
+
+/* Sign-in link styles */
+.signin-link {
+    margin-top: 0px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: none;
+}
+
+.signin-link a {
+    font-weight: bold;
+    color: grey;
+    text-decoration: none;
+}
+
+.signin-link a:hover {
+    color: white;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.eye-icon:before {
+    content: "\1F441"; /* Unicode for eye icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.password-container {
+    position: relative;
+}
+.eye-icon {
+    position: up;
+    right: 10px;
+    top: 30%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.eye-icon:before {
+    content: U+1F441; /* Unicode for eye icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.password-container {
+    position: relative;
+}
+
+/* Error message styles */
+#error-message {
+    color: red; /* Set the color to red for error messages */
+}

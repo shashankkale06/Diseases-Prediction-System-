@@ -1,0 +1,35 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Welcome to Medico</title>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="welcome-text">Welcome to Medcay</h1>
+    </header>
+
+    <section>
+        <h2>Get Started with Your Health Journey</h2>
+        <p>Welcome to Medcay! Take the first step towards better health by creating your account.</p>
+        <p>Our platform offers a range of features to help you manage your health effectively.</p>
+        <button onclick="location.href='{{ url_for('registration') }}'">Create Your Account</button>
+    </section>
+    <footer>
+        <p>&copy; 2024 Disease Prediction Services. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
